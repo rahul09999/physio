@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { Activity, Phone, RotateCcw } from "lucide-react";
+import clsx from "clsx";
 import { cn } from "../utils";
 import { Button } from "./Button";
 import { bodyPartsList, bodyPartPaths } from "../data/bodyParts";
+import { ShouldersOverlay } from "./ShouldersOverlay";
 
 export const BodyMap = () => {
   const [gender, setGender] = useState("male");
@@ -80,18 +82,29 @@ export const BodyMap = () => {
           </button>
         )}
 
-        <div className="relative w-full max-w-[320px] aspect-[1/2] mx-auto shadow-2xl rounded-2xl overflow-hidden bg-white">
+        <div className="relative w-full max-w-xl mx-auto shadow-2xl rounded-2xl overflow-hidden bg-white">
           {/* Base Image */}
           <img 
             src={`/${gender}_${view}_view.png`} 
             alt={`${gender} ${view} view`} 
-            className="w-full h-full object-cover"
+            className="w-full h-auto"
           />
 
-          {/* SVG Overlay */}
+          {/* Shoulders SVG Overlay - Only for male front view */}
+          {gender === "male" && view === "front" && (
+            <ShouldersOverlay
+              className={clsx(
+                "absolute inset-0 w-full h-full cursor-pointer transition-colors duration-200 pointer-events-auto",
+                selectedParts.includes("shoulders") ? "text-blue-500/50" : "text-transparent hover:text-blue-500/30"
+              )}
+              onClick={() => togglePart("shoulders")}
+            />
+          )}
+
+          {/* SVG Overlay for other body parts */}
           <svg 
             viewBox="0 0 100 100" 
-            className="absolute inset-0 w-full h-full" 
+            className="absolute inset-0 w-full h-full pointer-events-none" 
             preserveAspectRatio="none"
           >
             {Object.entries(currentPaths).map(([id, path]) => (
@@ -99,7 +112,7 @@ export const BodyMap = () => {
                 key={id}
                 onClick={() => togglePart(id)}
                 className={cn(
-                  "cursor-pointer transition-all duration-200",
+                  "cursor-pointer transition-all duration-200 pointer-events-auto",
                   // Default state: Transparent fill
                   "fill-transparent stroke-none",
                   // Hover state: Semi-transparent blue fill
