@@ -27,7 +27,7 @@ export const BodyMap = () => {
       .join(", ");
 
     const message = `Hi Dr. Akansha, I have Level ${painLevel} pain${selectedNames ? ` in my: ${selectedNames}` : ""}. When can you visit?`;
-    const url = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
 
@@ -85,7 +85,10 @@ export const BodyMap = () => {
         <div className="relative w-full max-w-xl mx-auto shadow-2xl rounded-2xl overflow-hidden bg-white">
           {/* Base Image */}
           <img 
-            src={`/${gender}_${view}_view.png`} 
+            src={gender === 'female' 
+              ? (view === 'back' ? '/female_Back.png' : '/female_front.png')
+              : `/${gender}_${view}_view.png`
+            } 
             alt={`${gender} ${view} view`} 
             className="w-full h-auto"
           />

@@ -236,7 +236,7 @@ export default function Home() {
           <div>
             <h4 className="font-bold text-white mb-4">Contact</h4>
             <ul className="space-y-2 text-sm">
-              <li className="flex items-center gap-2"><Phone size={16} /> +91 98765 43210</li>
+              <li className="flex items-center gap-2"><Phone size={16} /> +{process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}</li>
               <li className="flex items-center gap-2"><MapPin size={16} /> Metro City Area</li>
               <li className="flex items-center gap-2"><Clock size={16} /> Mon-Sun: 8am - 8pm</li>
             </ul>
