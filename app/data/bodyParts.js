@@ -18,130 +18,7 @@ export const bodyPartsList = [
 ];
 
 export const bodyPartPaths = {
-  male_front: {
-    'head-neck': (
-      <>
-        {circle(50, 14, 5)} {/* Head */}
-        {rect(46.5, 19, 7, 4)} {/* Neck */}
-      </>
-    ),
-    chest: (
-      <>
-        {path("M36,24 Q50,28 64,24 L62,34 Q50,36 38,34 Z")}
-      </>
-    ),
-    abdomen: (
-      <>
-        {rect(39, 35, 22, 10)} {/* Upper Abdomen */}
-        {rect(39, 46, 22, 8)} {/* Lower Abdomen */}
-      </>
-    ),
-    arms: (
-      <>
-        {/* Left Arm */}
-        {circle(32, 26, 5)} {/* L Shoulder */}
-        {path("M28,30 L20,45 L15,54 L21,56 L26,47 L34,32 Z")} {/* L Full Arm */}
-        
-        {/* Right Arm */}
-        {circle(68, 26, 5)} {/* R Shoulder */}
-        {path("M72,30 L80,45 L85,54 L79,56 L74,47 L66,32 Z")} {/* R Full Arm */}
-      </>
-    ),
-    hands: (
-      <>
-        {circle(18, 59, 4.5)} {/* L Hand - Circle */}
-        {circle(82, 59, 4.5)} {/* R Hand - Circle */}
-      </>
-    ),
-    'hips-pelvis': (
-      <>
-        {circle(42, 56, 6)}
-        {circle(58, 56, 6)}
-      </>
-    ),
-    legs: (
-      <>
-        {/* Left Leg */}
-        {path("M35,58 Q32,64 33,70 Q33,76 38,77 Q43,76 43,70 Q44,64 42,58 Z")} {/* L Thigh - Oval */}
-        {rect(34, 78, 8, 18)} {/* L Shin - Rectangle */}
-        
-        {/* Right Leg */}
-        {path("M58,58 Q55,64 57,70 Q57,76 62,77 Q67,76 67,70 Q68,64 65,58 Z")} {/* R Thigh - Oval */}
-        {rect(58, 78, 8, 18)} {/* R Shin - Rectangle */}
-      </>
-    ),
-    feet: (
-      <>
-        {circle(38, 99, 4)} {/* L Foot - Circle */}
-        {circle(62, 99, 4)} {/* R Foot - Circle */}
-      </>
-    ),
-  },
-  male_back: {
-    'head-neck': (
-      <>
-        {circle(50, 14, 5)}
-        {rect(46.5, 19, 7, 4)}
-      </>
-    ),
-    'upper-back': (
-      <>
-        {path("M36,24 L64,24 L62,34 L38,34 Z")}
-        {path("M39,26 L46,26 L44,32 L39,30 Z")}
-        {path("M61,26 L54,26 L56,32 L61,30 Z")}
-      </>
-    ),
-    'lower-back': (
-      <>
-        {rect(39, 35, 22, 10)}
-        {rect(39, 46, 22, 8)}
-      </>
-    ),
-    arms: (
-      <>
-        {circle(33, 25, 5.5)} {/* L Shoulder */}
-        {circle(67, 25, 5.5)} {/* R Shoulder */}
-        {path("M28,28 L18,38 L25,38 L33,28 Z")} {/* L Upper Arm - Far Wide */}
-        {path("M72,28 L82,38 L75,38 L67,28 Z")} {/* R Upper Arm - Far Wide */}
-        {circle(21, 40, 3)} {/* L Elbow - Far Wide */}
-        {circle(79, 40, 3)} {/* R Elbow - Far Wide */}
-        {path("M20,43 L12,53 L18,53 L23,43 Z")} {/* L Forearm - Far Wide */}
-        {path("M80,43 L88,53 L82,53 L77,43 Z")} {/* R Forearm - Far Wide */}
-      </>
-    ),
-    hands: (
-      <>
-        {circle(14, 56, 2.5)} {/* L Wrist - Far Wide */}
-        {circle(86, 56, 2.5)} {/* R Wrist - Far Wide */}
-        {path("M12,58 L8,65 L16,65 L18,58 Z")} {/* L Hand - Far Wide */}
-        {path("M88,58 L92,65 L84,65 L82,58 Z")} {/* R Hand - Far Wide */}
-      </>
-    ),
-    'hips-pelvis': (
-      <>
-        {circle(42, 56, 6)}
-        {circle(58, 56, 6)}
-      </>
-    ),
-    legs: (
-      <>
-        {path("M38,60 L34,76 L42,76 L46,60 Z")} {/* L Thigh - Far Wide */}
-        {path("M62,60 L66,76 L58,76 L54,60 Z")} {/* R Thigh - Far Wide */}
-        {circle(38, 79, 4)} {/* L Knee - Far Wide */}
-        {circle(62, 79, 4)} {/* R Knee - Far Wide */}
-        {path("M36,83 L34,94 L40,94 L40,83 Z")} {/* L Calf - Far Wide */}
-        {path("M64,83 L66,94 L60,94 L60,83 Z")} {/* R Calf - Far Wide */}
-      </>
-    ),
-    feet: (
-      <>
-        {circle(37, 96, 2.5)} {/* L Ankle - Far Wide */}
-        {circle(63, 96, 2.5)} {/* R Ankle - Far Wide */}
-        {path("M34,97 L30,99 L40,99 L40,97 Z")} {/* L Foot - Far Wide */}
-        {path("M66,97 L70,99 L60,99 L60,97 Z")} {/* R Foot - Far Wide */}
-      </>
-    ),
-  },
+  // Male body parts now use external SVG overlays (see svgFileMapping below)
   female_front: {
     'head-neck': (
       <>
@@ -269,5 +146,31 @@ export const bodyPartPaths = {
         {path("M63,96 L67,99 L58,99 L59,96 Z")} {/* R Foot - Far Wide */}
       </>
     ),
+  },
+};
+
+// SVG file mapping for external SVG overlays
+export const svgFileMapping = {
+  male_front: {
+    'head-neck': '/male/front/Face and neck.svg',
+    'shoulders': '/male/front/Shoulders.svg',
+    'chest': '/male/front/chest.svg',
+    'abdomen': '/male/front/abdomen.svg',
+    'arms': '/male/front/arms.svg',
+    'hands': '/male/front/hands.svg',
+    'hips-pelvis': '/male/front/thighs.svg', // Using thighs svg for hips-pelvis area
+    'legs': '/male/front/Legs.svg',
+    'feet': '/male/front/feets.svg',
+  },
+  male_back: {
+    'head-neck': '/male/back/back_face_neck.svg',
+    'shoulders': '/male/back/back_shoulders.svg',
+    'upper-back': '/male/back/back_upper_back.svg',
+    'lower-back': '/male/back/back_lower_back.svg',
+    'arms': '/male/back/back_arms.svg',
+    'hands': '/male/back/back_hands.svg',
+    'hips-pelvis': '/male/back/back_thighs.svg', // Using thighs svg for hips-pelvis area
+    'legs': '/male/back/back_legs.svg',
+    'feet': '/male/back/back_feets.svg',
   },
 };

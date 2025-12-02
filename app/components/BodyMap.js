@@ -5,8 +5,8 @@ import { Activity, Phone, RotateCcw } from "lucide-react";
 import clsx from "clsx";
 import { cn } from "../utils";
 import { Button } from "./Button";
-import { bodyPartsList, bodyPartPaths } from "../data/bodyParts";
-import { ShouldersOverlay } from "./ShouldersOverlay";
+import { bodyPartsList, svgFileMapping } from "../data/bodyParts";
+import { BodyPartSvgOverlay } from "./BodyPartSvgOverlay";
 
 export const BodyMap = () => {
   const [gender, setGender] = useState("male");
@@ -32,7 +32,7 @@ export const BodyMap = () => {
   };
 
   const currentKey = `${gender}_${view}`;
-  const currentPaths = bodyPartPaths[currentKey] || {};
+  const currentSvgMapping = svgFileMapping[currentKey] || {};
 
   return (
     <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 flex flex-col lg:flex-row">
@@ -90,41 +90,16 @@ export const BodyMap = () => {
             className="w-full h-auto"
           />
 
-          {/* Shoulders SVG Overlay - Only for male front view */}
-          {gender === "male" && view === "front" && (
-            <ShouldersOverlay
-              className={clsx(
-                "absolute inset-0 w-full h-full cursor-pointer transition-colors duration-200 pointer-events-auto",
-                selectedParts.includes("shoulders") ? "text-blue-500/50" : "text-transparent hover:text-blue-500/30"
-              )}
-              onClick={() => togglePart("shoulders")}
+          {/* Dynamic SVG Overlays from external files */}
+          {Object.entries(currentSvgMapping).map(([bodyPartId, svgPath]) => (
+            <BodyPartSvgOverlay
+              key={bodyPartId}
+              svgPath={svgPath}
+              bodyPartId={bodyPartId}
+              isSelected={selectedParts.includes(bodyPartId)}
+              onClick={() => togglePart(bodyPartId)}
             />
-          )}
-
-          {/* SVG Overlay for other body parts */}
-          <svg 
-            viewBox="0 0 100 100" 
-            className="absolute inset-0 w-full h-full pointer-events-none" 
-            preserveAspectRatio="none"
-          >
-            {Object.entries(currentPaths).map(([id, path]) => (
-              <g 
-                key={id}
-                onClick={() => togglePart(id)}
-                className={cn(
-                  "cursor-pointer transition-all duration-200 pointer-events-auto",
-                  // Default state: Transparent fill
-                  "fill-transparent stroke-none",
-                  // Hover state: Semi-transparent blue fill
-                  "hover:fill-blue-500/30",
-                  // Selected state: Blue fill, Blue stroke
-                  selectedParts.includes(id) && "fill-blue-500/50 stroke-blue-500 stroke-[0.5]"
-                )}
-              >
-                {path}
-              </g>
-            ))}
-          </svg>
+          ))}
 
           {/* Instructions Overlay (only if nothing selected) */}
           {selectedParts.length === 0 && (
