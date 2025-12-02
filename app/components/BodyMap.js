@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Activity, Phone, RotateCcw } from "lucide-react";
 import clsx from "clsx";
 import { cn } from "../utils";
@@ -13,6 +13,33 @@ export const BodyMap = () => {
   const [view, setView] = useState("front");
   const [selectedParts, setSelectedParts] = useState([]);
   const [painLevel, setPainLevel] = useState(5);
+
+  // Preload all body model images AND SVG overlays to prevent re-fetching when switching views
+  useEffect(() => {
+    // Preload base body model images
+    const imagesToPreload = [
+      '/male_front_view.png',
+      '/male_back_view.png',
+      '/female_front.png',
+      '/female_Back.png'
+    ];
+
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+
+    // Preload all SVG overlay files for instant switching
+    const allSvgFiles = Object.values(svgFileMapping).flatMap(mapping => 
+      Object.values(mapping)
+    );
+
+    allSvgFiles.forEach((svgPath) => {
+      fetch(svgPath)
+        .then(response => response.text())
+        .catch(err => console.log('SVG preload failed:', svgPath));
+    });
+  }, []);
 
   const togglePart = (id) => {
     setSelectedParts((prev) =>
@@ -40,31 +67,31 @@ export const BodyMap = () => {
       <div className="p-6 md:p-10 flex-1 bg-slate-50 relative min-h-[600px] flex flex-col items-center justify-center">
         
         {/* Toggles */}
-        <div className="absolute top-6 left-6 flex flex-col gap-3 z-10">
-          <div className="bg-white p-1 rounded-lg shadow-sm border border-slate-200 inline-flex">
+        <div className="absolute top-6 left-6 flex flex-col gap-3 z-20">
+          <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-200 inline-flex gap-1 w-fit">
             <button 
               onClick={() => setGender("male")}
-              className={cn("px-3 py-1.5 rounded-md text-sm font-medium transition-colors", gender === "male" ? "bg-blue-100 text-blue-700" : "text-slate-500 hover:bg-slate-50")}
+              className={cn("px-4 py-2 rounded-md text-sm font-medium transition-colors", gender === "male" ? "bg-blue-100 text-blue-700" : "text-slate-500 hover:bg-slate-50")}
             >
               Male
             </button>
             <button 
               onClick={() => setGender("female")}
-              className={cn("px-3 py-1.5 rounded-md text-sm font-medium transition-colors", gender === "female" ? "bg-pink-100 text-pink-700" : "text-slate-500 hover:bg-slate-50")}
+              className={cn("px-4 py-2 rounded-md text-sm font-medium transition-colors", gender === "female" ? "bg-pink-100 text-pink-700" : "text-slate-500 hover:bg-slate-50")}
             >
               Female
             </button>
           </div>
-          <div className="bg-white p-1 rounded-lg shadow-sm border border-slate-200 inline-flex">
+          <div className="bg-white p-1.5 rounded-lg shadow-sm border border-slate-200 inline-flex gap-1 w-fit">
             <button 
               onClick={() => setView("front")}
-              className={cn("px-3 py-1.5 rounded-md text-sm font-medium transition-colors", view === "front" ? "bg-slate-800 text-white" : "text-slate-500 hover:bg-slate-50")}
+              className={cn("px-4 py-2 rounded-md text-sm font-medium transition-colors", view === "front" ? "bg-slate-800 text-white" : "text-slate-500 hover:bg-slate-50")}
             >
               Front
             </button>
             <button 
               onClick={() => setView("back")}
-              className={cn("px-3 py-1.5 rounded-md text-sm font-medium transition-colors", view === "back" ? "bg-slate-800 text-white" : "text-slate-500 hover:bg-slate-50")}
+              className={cn("px-4 py-2 rounded-md text-sm font-medium transition-colors", view === "back" ? "bg-slate-800 text-white" : "text-slate-500 hover:bg-slate-50")}
             >
               Back
             </button>
@@ -75,7 +102,7 @@ export const BodyMap = () => {
         {selectedParts.length > 0 && (
           <button 
             onClick={() => setSelectedParts([])}
-            className="absolute top-6 right-6 bg-white p-2 rounded-full shadow-sm border border-slate-200 text-slate-500 hover:text-red-500 hover:bg-red-50 transition-colors"
+            className="absolute top-6 right-6 bg-white p-2 rounded-full shadow-sm border border-slate-200 text-slate-500 hover:text-red-500 hover:bg-red-50 transition-colors z-20"
             title="Reset Selection"
           >
             <RotateCcw size={18} />
