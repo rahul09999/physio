@@ -12,7 +12,7 @@ export const bodyPartsList = [
   { name: 'Lower Back', id: 'lower-back' },
   { name: 'Arms', id: 'arms' },
   { name: 'Hands', id: 'hands' },
-  { name: 'Hips & Pelvis', id: 'hips-pelvis' },
+  { name: 'Thighs', id: 'hips-pelvis' },
   { name: 'Legs', id: 'legs' },
   { name: 'Feet', id: 'feet' },
 ];

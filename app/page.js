@@ -77,7 +77,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-6 text-sm text-slate-500 font-medium pt-4 justify-center md:justify-start">
               <span className="flex items-center gap-1"><Star size={16} className="text-yellow-400 fill-yellow-400" /> 4.9/5 Rating</span>
-              <span className="flex items-center gap-1"><User size={16} /> 500+ Patients</span>
+              <span className="flex items-center gap-1"><User size={16} /> 486+ Patients</span>
             </div>
           </div>
           <div className="flex-1 relative">
@@ -120,7 +120,7 @@ export default function Home() {
             <div className="text-sm text-slate-500 font-medium">Clinical Experience</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-blue-600 mb-1">500+</div>
+            <div className="text-3xl font-bold text-blue-600 mb-1">486+</div>
             <div className="text-sm text-slate-500 font-medium">Happy Patients</div>
           </div>
           <div>
@@ -128,7 +128,7 @@ export default function Home() {
             <div className="text-sm text-slate-500 font-medium">Home Visits</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-blue-600 mb-1">5/5</div>
+            <div className="text-3xl font-bold text-blue-600 mb-1">4.9/5</div>
             <div className="text-sm text-slate-500 font-medium">Average Rating</div>
           </div>
         </div>

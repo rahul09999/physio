@@ -18,10 +18,10 @@ export const BodyMap = () => {
   useEffect(() => {
     // Preload base body model images
     const imagesToPreload = [
-      '/male_front_view.png',
-      '/male_back_view.png',
-      '/female_front.png',
-      '/female_Back.png'
+      '/male_front_view.webp',
+      '/male_back_view.webp',
+      '/female_front.webp',
+      '/female_Back.webp'
     ];
 
     imagesToPreload.forEach((src) => {
@@ -113,8 +113,8 @@ export const BodyMap = () => {
           {/* Base Image */}
           <img 
             src={gender === 'female' 
-              ? (view === 'back' ? '/female_Back.png' : '/female_front.png')
-              : `/${gender}_${view}_view.png`
+              ? (view === 'back' ? '/female_Back.webp' : '/female_front.webp')
+              : `/${gender}_${view}_view.webp`
             } 
             alt={`${gender} ${view} view`} 
             className="w-full h-auto"
