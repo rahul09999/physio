@@ -243,7 +243,7 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Dummy. All rights reserved.
+          © {new Date().getFullYear()} Dummys. All rights reserved.
         </div>
       </footer>
     </main>
