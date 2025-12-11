@@ -243,7 +243,15 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} PhysioFlow. All rights reserved.
+          <p>© {new Date().getFullYear()} PhysioFlow. All rights reserved.</p>
+          <p className="mt-2">
+            <a 
+              href={`mailto:${process.env.NEXT_PUBLIC_DEVELOPER_EMAIL}?subject=Inquiry: Website Development&body=Hi,%0D%0A%0D%0AI saw the PhysioFlow website template and I'm interested in building a similar website.%0D%0APlease let me know your availability and pricing.%0D%0A%0D%0AThanks`}
+              className="hover:text-blue-400 transition-colors"
+            >
+              Want a website like this? Contact Developer
+            </a>
+          </p>
         </div>
       </footer>
     </main>
