@@ -44,7 +44,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="font-bold text-2xl text-blue-600 flex items-center gap-2">
             <Activity className="text-blue-600" />
-            Dummy
+            Mercer Physio
           </div>
           <Button variant="primary" className="hidden md:flex text-sm py-2 px-4 min-h-[36px]" onClick={() => document.getElementById('body-map').scrollIntoView({ behavior: 'smooth' })}>
             Book Now
@@ -65,7 +65,7 @@ export default function Home() {
               Expert Physiotherapy in the <span className="text-blue-600">Comfort of Your Home</span>.
             </h1>
             <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-              Why travel when you're in pain? Dr. Akansha brings 4 years of clinical expertise directly to your living room. Stop searching, start recovering.
+              Why travel when you're in pain? Dr. Mercer brings 15 years of clinical expertise directly to your living room. Stop searching, start recovering.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button onClick={() => document.getElementById('body-map').scrollIntoView({ behavior: 'smooth' })} className="text-lg px-8">
@@ -88,8 +88,8 @@ export default function Home() {
                   <div className="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl">S</div>
                     <div>
-                      <div className="font-bold text-slate-900">Dr. Akansha Lalwani</div>
-                      <div className="text-sm text-slate-500">Senior Physiotherapist</div>
+                      <div className="font-bold text-slate-900">Dr. Alex Mercer</div>
+                      <div className="text-sm text-slate-500">DPT, OCS</div>
                     </div>
                   </div>
                   <div className="space-y-4">
@@ -103,7 +103,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-3 text-slate-700">
                       <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center text-purple-600"><MapPin size={16} /></div>
-                      <span>Ahmedabad, Gujarat</span>
+                      <span>New York, NY</span>
                     </div>
                   </div>
                 </div>
@@ -116,7 +116,7 @@ export default function Home() {
       <div className="bg-white border-y border-slate-100">
         <div className="max-w-6xl mx-auto px-4 py-8 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-3xl font-bold text-blue-600 mb-1">4+ Years</div>
+            <div className="text-3xl font-bold text-blue-600 mb-1">15+ Years</div>
             <div className="text-sm text-slate-500 font-medium">Clinical Experience</div>
           </div>
           <div>
@@ -183,12 +183,12 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              text: "Dr. Akansha fixed my frozen shoulder in just 3 weeks. I can finally lift my grandkids again!",
+              text: "Dr. Mercer fixed my frozen shoulder in just 3 weeks. I can finally lift my grandkids again!",
               author: "Margaret T.",
               role: "Retired Teacher"
             },
             {
-              text: "After my knee surgery, I was scared to walk. Her patience and expertise helped me walk confidently.",
+              text: "After my knee surgery, I was scared to walk. His patience and expertise helped me walk confidently.",
               author: "James R.",
               role: "Post-Surgery Patient"
             },
@@ -218,7 +218,7 @@ export default function Home() {
           <div className="col-span-2">
             <div className="font-bold text-2xl text-white mb-4 flex items-center gap-2">
               <Activity className="text-blue-500" />
-              Dummy
+              Mercer Physio
             </div>
             <p className="max-w-xs text-slate-400">
               Professional physiotherapy delivered to your doorstep. Recover faster, better, and more comfortably.
@@ -237,13 +237,13 @@ export default function Home() {
             <h4 className="font-bold text-white mb-4">Contact</h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2"><Phone size={16} /> +{process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}</li>
-              <li className="flex items-center gap-2"><MapPin size={16} /> Metro City Area</li>
+              <li className="flex items-center gap-2"><MapPin size={16} /> Manhattan, NY</li>
               <li className="flex items-center gap-2"><Clock size={16} /> Mon-Sun: 8am - 8pm</li>
             </ul>
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} Dummys. All rights reserved.
+          © {new Date().getFullYear()} Mercer Physio. All rights reserved.
         </div>
       </footer>
     </main>

@@ -53,7 +53,7 @@ export const BodyMap = () => {
       .filter(Boolean)
       .join(", ");
 
-    const message = `Hi Dr. Akansha, I have Level ${painLevel} pain${selectedNames ? ` in my: ${selectedNames}` : ""}. When can you visit?`;
+    const message = `Hi Dr. Alex, I have Level ${painLevel} pain${selectedNames ? ` in my: ${selectedNames}` : ""}. When can you visit?`;
     const url = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
   };
