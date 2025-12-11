@@ -44,7 +44,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="font-bold text-2xl text-blue-600 flex items-center gap-2">
             <Activity className="text-blue-600" />
-            PhysioFlow
+            Dummy
           </div>
           <Button variant="primary" className="hidden md:flex text-sm py-2 px-4 min-h-[36px]" onClick={() => document.getElementById('body-map').scrollIntoView({ behavior: 'smooth' })}>
             Book Now
@@ -218,7 +218,7 @@ export default function Home() {
           <div className="col-span-2">
             <div className="font-bold text-2xl text-white mb-4 flex items-center gap-2">
               <Activity className="text-blue-500" />
-              PhysioFlow
+              Dummy
             </div>
             <p className="max-w-xs text-slate-400">
               Professional physiotherapy delivered to your doorstep. Recover faster, better, and more comfortably.
@@ -243,7 +243,7 @@ export default function Home() {
           </div>
         </div>
         <div className="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
-          © {new Date().getFullYear()} PhysioFlow. All rights reserved.
+          © {new Date().getFullYear()} Dummy. All rights reserved.
         </div>
       </footer>
     </main>
